@@ -1,0 +1,36 @@
+.progress-bar-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.progress-bar{
+    background-color: #bebebe;
+    border-radius: 30px;
+    height: 20px;
+    width:30%;
+    margin:10px;
+}
+
+.progress-bar-fill{
+    background-color: blueviolet;
+    border-radius: 30px;
+    height: 100%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.progress-bar-fill span{
+    margin-left: 50px;
+}
+
+input {
+    border-radius: 20px;
+    width: 70px;
+    padding: 10px;
+    outline: none;
+  }
+  span{
+    margin: 0 15px;
+  }
