@@ -1,10 +1,5 @@
-import "./App.css";
-import { ProgressBar } from "./challenges/ProgressBar";
+import App from "./challenges/CheckboxesChallenge/App";
 
-export default function App() {
-  return (
-    <div className="App">
-      <ProgressBar />
-    </div>
-  );
+export default function MyApp() {
+  return <App />;
 }
