@@ -1,18 +1,10 @@
 import * as React from "react";
 
-export default function Checkbox({ id, checked, label, onChange }) {
-  const [isChecked, setIsChecked] = React.useState(false);
-
-  const handleCheckboxChange = (e) => {
-    setIsChecked(!isChecked);
-    onChange(id, isChecked);
-    console.log(e.target.checked, id);
-  };
-
+export const Checkbox = ({ label, checked, onChange }) => {
   return (
     <div className="checkbox">
-      <input type="checkbox" onChange={(e) => handleCheckboxChange(e)} />
+      <input type="checkbox" onChange={onChange} checked={checked}></input>{" "}
       {label}
     </div>
   );
-}
+};

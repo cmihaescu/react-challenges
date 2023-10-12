@@ -1,18 +1,40 @@
 import * as React from "react";
-import Checkbox from "./Checkbox";
+import { Checkbox } from "./Checkbox";
 import "./style.css";
 import { list } from "./list";
 
-export default function App() {
+const App = () => {
   const [mainCheck, setMainCheck] = React.useState(false);
-  const [updatedList, setUpdatedList] = React.useState(list);
+  const [checkboxes, setCheckboxes] = React.useState(list);
 
-  const handleMainCheckbox = () => {
+  const handleMainCheck = () => {
     setMainCheck(!mainCheck);
+    const updateCheckboxes = checkboxes.map((checkbox) => ({
+      ...checkbox,
+      isChecked: !mainCheck,
+    }));
+    setCheckboxes(updateCheckboxes);
   };
 
-  const handleCheckboxesChange = (id, checked) => {
-    console.log("id inside main", id, !checked);
+  const handleCheckboxes = (id) => {
+    const updateCheckboxes = checkboxes.map((checkbox) => {
+      if (checkbox.id === id) {
+        return {
+          ...checkbox,
+          isChecked: !checkbox.isChecked,
+        };
+      } else {
+        return {
+          ...checkbox,
+        };
+      }
+    });
+    if (updateCheckboxes.every((checkbox) => checkbox.isChecked === true)) {
+      setMainCheck(true);
+    } else {
+      setMainCheck(false);
+    }
+    setCheckboxes(updateCheckboxes);
   };
 
   return (
@@ -20,22 +42,23 @@ export default function App() {
       <div className="check-all-checkbox-container">
         <input
           type="checkbox"
-          onChange={handleMainCheckbox}
           checked={mainCheck}
-        />{" "}
+          onChange={handleMainCheck}
+        ></input>
         Select All
       </div>
       <div className="checkboxes-container">
-        {list.map((item) => (
+        {checkboxes.map((checkbox) => (
           <Checkbox
-            key={item.id}
-            id={item.id}
-            checked={item.isChecked}
-            label={item.name}
-            onChange={(id, checked) => handleCheckboxesChange(id, checked)}
+            key={checkbox.id}
+            label={checkbox.name}
+            checked={checkbox.isChecked}
+            onChange={() => handleCheckboxes(checkbox.id)}
           />
         ))}
       </div>
     </div>
   );
-}
+};
+
+export default App;
