@@ -1,4 +1,4 @@
-import App from "./challenges/CheckboxesChallenge/App";
+import { App } from "./challenges/CustomHookChallenge/CustomHookChallenge";
 
 export default function MyApp() {
   return <App />;
