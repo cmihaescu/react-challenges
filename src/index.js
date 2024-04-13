@@ -1,18 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./challenges/ReactUseContextChallenge/App";
+import App from "./challenges/ReduxThunkChallenge/App";
 import reportWebVitals from "./reportWebVitals";
-import { CartProvider } from "./challenges/ReactUseContextChallenge/contexts/cartContext";
-import { UsersProvider } from "./challenges/ReactUseContextChallenge/contexts/userContext";
+import { store } from "./challenges/ReduxThunkChallenge/store";
+import { Provider } from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <CartProvider>
-    <UsersProvider>
-      <App />
-    </UsersProvider>
-  </CartProvider>
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

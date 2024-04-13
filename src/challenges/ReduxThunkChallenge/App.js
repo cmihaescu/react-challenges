@@ -7,7 +7,7 @@ import "./App.scss";
 const App = () => {
   return (
     <div>
-      <h1>Mockup Shop with useContext</h1>
+      <h1>Mockup Shop with redux toolkit</h1>
       <div className="App-container">
         <Shop></Shop>
         <Users></Users>
