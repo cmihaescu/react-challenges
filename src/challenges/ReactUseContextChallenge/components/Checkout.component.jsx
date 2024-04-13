@@ -9,6 +9,8 @@ const Checkout = () => {
   const handleCurrencyChange = (e) => {
     setCurrency(e.target.value);
   };
+  let isUserSelected = user.name === "select a user" ? false : true;
+
   return (
     <div>
       <h1>Checkout</h1>
@@ -22,7 +24,7 @@ const Checkout = () => {
           <option key={i}>{currency}</option>
         ))}
       </select>
-      {user && (
+      {isUserSelected && (
         <div>
           User:
           <p> Name: {user.name}</p>

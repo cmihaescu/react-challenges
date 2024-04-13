@@ -38,6 +38,9 @@ const productsArray = [
 
 const usersArray = [
   {
+    name: "select a user",
+  },
+  {
     name: "John",
     age: 22,
     favoriteProduct: "shoes",
