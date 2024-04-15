@@ -13,7 +13,13 @@ const Checkout = () => {
   const dispatch = useDispatch();
 
   const handleSendGift = () => {
-    alert(`Gift was send! ${selectedCharacter.name} is very grateful to you!`);
+    if (cartTotal > 0) {
+      alert(
+        `Gift was send! ${selectedCharacter.name} is very grateful to you!`
+      );
+    } else {
+      alert(`Don't be cheap, buy something fo ${selectedCharacter.name}`);
+    }
     dispatch(setCartItems([]));
     dispatch(setCartTotal(0));
   };
@@ -36,12 +42,21 @@ const Checkout = () => {
           ))}
         </select>
       </p>
-      <div>
-        <h4>Sent gift to:</h4>
-        <p> Name: {selectedCharacter.name}</p>
-        <p>Home world: {selectedCharacter.homeWorld}</p>
-        <p>Starred in: {selectedCharacter.films}</p>
-      </div>
+      {selectedCharacter.name &&
+        selectedCharacter.homeWorld &&
+        selectedCharacter.films && (
+          <div>
+            <h4>Sent gift to:</h4>
+            <p> Name: {selectedCharacter.name}</p>
+            <p>Home world: {selectedCharacter.homeWorld}</p>
+            <p>Starred in:</p>
+            <ul>
+              {selectedCharacter.films.map((film, i) => (
+                <li key={i}>{film}</li>
+              ))}
+            </ul>
+          </div>
+        )}
       <h5>
         Cart Total: {cartTotal} {currency}
       </h5>

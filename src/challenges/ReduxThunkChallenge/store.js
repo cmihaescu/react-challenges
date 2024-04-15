@@ -8,6 +8,5 @@ export const store = configureStore({
     cart: cartReducer,
     characters: charactersReducer,
   },
-  // middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
