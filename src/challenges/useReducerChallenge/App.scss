@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.product-card {
+  border: 1px solid gray;
+  border-radius: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.product-details {
+  width: 450px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  padding: 1rem;
+  text-align: justify;
+  gap: 1rem;
+  & > img {
+    width: 200px;
+  }
+}
+
+.product-list {
+  list-style-type: none;
+}
+
+h1 {
+  text-align: center;
+}
+
+.product-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
